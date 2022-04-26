@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_i/widgets/not_implemented_chip.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -20,7 +21,7 @@ class Home extends StatelessWidget {
         title: const Text("Thingiverse - Home",
             style: TextStyle(fontWeight: FontWeight.bold)),
       ),
-      body: Container(color: Colors.white),
+      body: const Center(child: NotImplementedChip()),
     );
   }
 }
