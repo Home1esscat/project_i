@@ -13,9 +13,28 @@ class Home extends StatelessWidget {
             onPressed: () => {},
             icon: const Icon(Icons.search_rounded),
           ),
-          IconButton(
-            onPressed: () => {},
+          PopupMenuButton(
             icon: const Icon(Icons.sort_rounded),
+            itemBuilder: (context) => [
+              const PopupMenuItem(
+                value: 1,
+                child: Text(
+                  "Popular Last 7 Days",
+                ),
+              ),
+              const PopupMenuItem(
+                value: 1,
+                child: Text(
+                  "Popular Last 30 Days",
+                ),
+              ),
+              const PopupMenuItem(
+                value: 1,
+                child: Text(
+                  "Popular All Time",
+                ),
+              ),
+            ],
           ),
         ],
         title: const Text("Thingiverse - Home",

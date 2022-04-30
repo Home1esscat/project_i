@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/not_implemented_chip.dart';
+
 class Categories extends StatelessWidget {
   const Categories({Key? key}) : super(key: key);
 
@@ -14,7 +16,9 @@ class Categories extends StatelessWidget {
         title: const Text("Thingiverse - Categories",
             style: TextStyle(fontWeight: FontWeight.bold)),
       ),
-      body: Container(color: Colors.white),
+      body: const Center(
+        child: NotImplementedChip(),
+      ),
     );
   }
 }
