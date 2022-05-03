@@ -6,7 +6,15 @@ import 'package:project_i/screens/home.dart';
 import 'package:project_i/screens/random.dart';
 import 'dart:async';
 
-enum ScreenEvent { event_home, event_categories, event_favorite, event_profile }
+import 'package:project_i/screens/search.dart';
+
+enum ScreenEvent {
+  event_home,
+  event_categories,
+  event_favorite,
+  event_profile,
+  event_search
+}
 
 class ScreenBloc {
   late Widget _currentPage;
@@ -29,6 +37,8 @@ class ScreenBloc {
       _currentPage = const Favorite();
     } else if (event == ScreenEvent.event_profile) {
       _currentPage = const RandomScreen();
+    } else if (event == ScreenEvent.event_search) {
+      _currentPage = const Search();
     }
     _outputStateController.sink.add(_currentPage);
   }

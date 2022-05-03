@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:project_i/network/random_thing.dart';
+import 'package:project_i/network/models/random_thing_model.dart';
 import 'package:project_i/network/random_thing_api_provider.dart';
 
 class RandomScreen extends StatefulWidget {
@@ -29,30 +29,25 @@ class _RandomScreenState extends State<RandomScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Thingiverse - [Random]",
-            style: TextStyle(fontWeight: FontWeight.bold)),
-      ),
       body: FutureBuilder<SingleThing>(
         future: thing,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return Container(
+              margin: const EdgeInsets.only(top: 12),
               color: Colors.white,
               child: _fullCard(snapshot),
             );
           } else {
-            return _emptyCard();
+            return Container(
+              color: Colors.white,
+              margin: const EdgeInsets.only(top: 12),
+              child: _emptyCard(),
+            );
           }
         },
       ),
       floatingActionButton: FloatingActionButton(
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(16.0),
-          ),
-        ),
-        isExtended: true,
         elevation: 0,
         child: const Icon(Icons.refresh_rounded),
         onPressed: (() => {refresh()}),
@@ -67,11 +62,6 @@ Widget _emptyCard() {
     height: 500,
     child: Card(
       clipBehavior: Clip.antiAliasWithSaveLayer,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(16),
-        ),
-      ),
       margin: const EdgeInsets.all(14),
       elevation: 4,
       child: Container(
@@ -89,11 +79,6 @@ Widget _fullCard(AsyncSnapshot<SingleThing> snapshot) {
     height: 500,
     child: Card(
       clipBehavior: Clip.antiAliasWithSaveLayer,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(16),
-        ),
-      ),
       margin: const EdgeInsets.all(14),
       elevation: 4,
       child: Container(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../widgets/not_implemented_chip.dart';
+import 'package:project_i/screens/selected_category.dart';
 
 class Categories extends StatelessWidget {
   const Categories({Key? key}) : super(key: key);
@@ -8,17 +7,83 @@ class Categories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(
-              onPressed: () => {}, icon: const Icon(Icons.search_rounded))
-        ],
-        title: const Text("Thingiverse - Categories",
-            style: TextStyle(fontWeight: FontWeight.bold)),
-      ),
-      body: const Center(
-        child: NotImplementedChip(),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListView(
+          physics: const NeverScrollableScrollPhysics(),
+          children: ListTile.divideTiles(context: context, tiles: [
+            ListTile(
+              onTap: () => _selectCategory(context, 1, "Other"),
+              leading: const Icon(Icons.view_in_ar_rounded),
+              title: const Text('3D Printing'),
+            ),
+            ListTile(
+              onTap: () => _selectCategory(context, 1, "Other"),
+              leading: const Icon(Icons.palette_rounded),
+              title: const Text('Art'),
+            ),
+            ListTile(
+              onTap: () => _selectCategory(context, 1, "Other"),
+              leading: const Icon(Icons.diamond_rounded),
+              title: const Text('Fashion'),
+            ),
+            ListTile(
+              onTap: () => _selectCategory(context, 1, "Other"),
+              leading: const Icon(Icons.precision_manufacturing_rounded),
+              title: const Text('Gadgets'),
+            ),
+            ListTile(
+              onTap: () => _selectCategory(context, 1, "Other"),
+              leading: const Icon(Icons.sentiment_very_satisfied_rounded),
+              title: const Text('Hobby'),
+            ),
+            ListTile(
+              onTap: () => _selectCategory(context, 1, "Other"),
+              leading: const Icon(Icons.home_rounded),
+              title: const Text('Household'),
+            ),
+            ListTile(
+              onTap: () => _selectCategory(context, 1, "Other"),
+              leading: const Icon(Icons.import_contacts_rounded),
+              title: const Text('Learning'),
+            ),
+            ListTile(
+              onTap: () => _selectCategory(context, 1, "Other"),
+              leading: const Icon(Icons.design_services_rounded),
+              title: const Text('Models'),
+            ),
+            ListTile(
+              onTap: () => _selectCategory(context, 1, "Other"),
+              leading: const Icon(Icons.construction_rounded),
+              title: const Text('Tools'),
+            ),
+            ListTile(
+              onTap: () => _selectCategory(context, 1, "Other"),
+              leading: const Icon(Icons.toys_rounded),
+              title: const Text('Toys'),
+            ),
+            ListTile(
+              onTap: () => _selectCategory(context, 1, "Other"),
+              leading: const Icon(Icons.workspaces_rounded),
+              title: const Text('Other'),
+            ),
+          ]).toList(),
+        ),
       ),
     );
+  }
+
+  void _selectCategory(
+      BuildContext context, int category, String categoryName) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (c, a1, a2) => const SelectedCategory(),
+        transitionsBuilder: (c, anim, a2, child) =>
+            FadeTransition(opacity: anim, child: child),
+        transitionDuration: const Duration(milliseconds: 200),
+      ),
+    );
+    ;
   }
 }

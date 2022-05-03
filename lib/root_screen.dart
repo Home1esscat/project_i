@@ -72,6 +72,14 @@ class _MainContainerState extends State<_MainContainer> {
             splashRadius: 120,
             padding: const EdgeInsets.all(18),
             iconSize: 28,
+            onPressed: () => _bloc.inputEventSink.add(ScreenEvent.event_search),
+            icon: const Icon(Icons.search_rounded),
+            color: (index == 'Search') ? activeColor : Colors.white,
+          ),
+          IconButton(
+            splashRadius: 120,
+            padding: const EdgeInsets.all(18),
+            iconSize: 28,
             onPressed: () =>
                 _bloc.inputEventSink.add(ScreenEvent.event_favorite),
             icon: const Icon(Icons.favorite_rounded),

@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:html/parser.dart';
 import 'package:http/http.dart' as http;
 import 'package:project_i/network/constants.dart';
-import 'package:project_i/network/random_thing.dart';
+import 'package:project_i/network/models/random_thing_model.dart';
 
 class RandomThingApi {
   Future<String> _getRandomThingId() async {
@@ -28,11 +28,11 @@ class RandomThingApi {
   Future<SingleThing> getRandomThing() async {
     final id = await _getRandomThingId();
 
-    var uri = Uri.https(Constants.THING_BASE_URL, Constants.ThingGet + id);
+    var uri = Uri.https(Constants.thingiverseBaseUrl, Constants.things + id);
     //print('request : ' + uri.toString());
 
-    var response = await http.get(uri,
-        headers: {'Authorization': 'Bearer 316f725a8ccef687443578a1bf6603a0'});
+    var response = await http
+        .get(uri, headers: {Constants.autotization: Constants.bearerToken});
 
     //print('Status Code: ' + response.statusCode.toString());
 

@@ -1,8 +1,7 @@
 abstract class Constants {
-  static const String BEARER_TOKEN = 'Bearer 316f725a8ccef687443578a1bf6603a0';
-  static const String THINGS_BASE_SCHEME = 'https://';
-  static const String ThingGet = 'things/';
-  static const String THINGS_BASE_SCHEME_DOMAIN = 'api.thingiverse.com';
-  static const String THINGS_BASE_POPULAR_PATH = '/search/';
-  static const String THING_BASE_URL = THINGS_BASE_SCHEME_DOMAIN;
+  static const String bearerToken = 'Bearer 316f725a8ccef687443578a1bf6603a0';
+  static const String autotization = 'AUTHORIZATION';
+  static const String thingiverseBaseUrl = 'api.thingiverse.com';
+  static const String things = 'things/';
+  static const String search = 'search/';
 }
