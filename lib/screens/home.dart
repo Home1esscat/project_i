@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:project_i/network/constants.dart';
+import 'package:project_i/screens/universal_grid.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -10,9 +12,9 @@ class Home extends StatelessWidget {
         elevation: 0,
         child: const Icon(Icons.sort_rounded),
         onPressed: (() => {}),
-        backgroundColor: Colors.red,
+        backgroundColor: GlobalColors.globalColor,
       ),
-      body: const Center(),
+      body: const UniversalGrid(),
     );
   }
 }

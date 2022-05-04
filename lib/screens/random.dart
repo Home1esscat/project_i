@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:project_i/network/constants.dart';
 import 'package:project_i/network/models/random_thing_model.dart';
 import 'package:project_i/network/random_thing_api_provider.dart';
 
@@ -32,18 +33,21 @@ class _RandomScreenState extends State<RandomScreen> {
       body: FutureBuilder<SingleThing>(
         future: thing,
         builder: (context, snapshot) {
-          if (snapshot.hasData) {
+          if (snapshot.connectionState == ConnectionState.done) {
             return Container(
               margin: const EdgeInsets.only(top: 12),
               color: Colors.white,
               child: _fullCard(snapshot),
             );
-          } else {
+          }
+          if (snapshot.connectionState == ConnectionState.waiting) {
             return Container(
               color: Colors.white,
               margin: const EdgeInsets.only(top: 12),
               child: _emptyCard(),
             );
+          } else {
+            return _emptyCard();
           }
         },
       ),
@@ -51,7 +55,7 @@ class _RandomScreenState extends State<RandomScreen> {
         elevation: 0,
         child: const Icon(Icons.refresh_rounded),
         onPressed: (() => {refresh()}),
-        backgroundColor: Colors.red,
+        backgroundColor: GlobalColors.globalColor,
       ),
     );
   }
@@ -67,7 +71,7 @@ Widget _emptyCard() {
       child: Container(
         color: Colors.grey[200],
         child: const Center(
-          child: CircularProgressIndicator(color: Colors.red),
+          child: CircularProgressIndicator(color: GlobalColors.globalColor),
         ),
       ),
     ),
@@ -164,9 +168,7 @@ Widget share() {
 Widget _titleAvatar(String avatar, String description) {
   return Container(
     width: double.infinity,
-    decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(16))),
+    decoration: const BoxDecoration(color: Colors.white),
     margin: const EdgeInsets.all(8),
     child: Container(
       margin: const EdgeInsets.fromLTRB(8, 4, 8, 4),

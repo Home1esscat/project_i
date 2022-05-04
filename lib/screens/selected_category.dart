@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_i/network/constants.dart';
 import 'package:project_i/screens/universal_grid.dart';
 
 class SelectedCategory extends StatefulWidget {
@@ -26,7 +27,7 @@ class _SelectedCategoryState extends State<SelectedCategory> {
       elevation: 0,
       child: const Icon(Icons.arrow_back_rounded),
       onPressed: (() => {Navigator.pop(context)}),
-      backgroundColor: Colors.red,
+      backgroundColor: GlobalColors.globalColor,
     );
   }
 

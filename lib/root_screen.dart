@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_i/network/constants.dart';
 import 'package:project_i/screens/home.dart';
 
 import 'bloc_components/screen_bloc.dart';
@@ -45,9 +46,9 @@ class _MainContainerState extends State<_MainContainer> {
   }
 
   Widget _getNavigationButtons(String index) {
-    const activeColor = Color.fromARGB(255, 110, 15, 15);
+    const activeColor = GlobalColors.localColor;
     return Container(
-      color: Colors.red,
+      color: GlobalColors.globalColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
